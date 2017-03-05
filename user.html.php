@@ -19,6 +19,12 @@ list-style:
 	margin:0;
 	padding:0;
 }
+
+.main
+{
+	background-color:#e9ecf4;
+}
+
 #header h1,
 #header h2,
 #header p {
@@ -75,10 +81,11 @@ list-style:
 /* --> */
     </style>
 </head>
-<body id="active2">
+<body id="active2 main">
 
 <div id="header">
 	<h1><center>Currently Playing: 
+			<!-- Extract Current Song -->
 			<?php
 			$fileName = "musicTest.txt";
 			$file = fopen($fileName, "r");
@@ -93,22 +100,25 @@ list-style:
 			}
     		fclose($file);
     		?>
+
 		</center></h1>
 <div id="container2">
 	<div id="container1">
 		<div id="col1">
 			<!-- Column one start -->
+
 			<h2>Request a Song</h2>
 			<!-- PHP Start -->
 			<?php
-			// define variables and set to empty values
+			$bool = true;
 			$titleErr = "";
-			$title = $artist = $genre = $name = "";
+			$title = $artist = $genre = "";
 			  
 			//title		
 			  if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			  if (empty($_POST["title"])) {
 			    $titleErr = "Title is required";
+			    $bool = false;
 			  } else {
 			    $title = test_input($_POST["title"]);
 			    // check if name only contains letters and whitespace
@@ -155,18 +165,20 @@ list-style:
 
 			<?php
 
-			
-			$file = fopen("musicTest.txt", "a");
-			echo fwrite($file,$title." : ".$artist." : ".$genre."\r\n");
-			fclose($file);
+			if($bool)
+			{
+				$file = fopen("musicTest.txt", "a");
+				echo fwrite($file,"\r\n".$title." : ".$artist." : ".$genre."\r\n");
+				fclose($file);
 
-			echo "<h2>Your Input:</h2>";
-			echo $title;
-			echo " ";
-			echo $artist;
-			echo " ";
-			echo $genre;
-			echo " ";
+				echo "<h2>Your Input:</h2>";
+				echo $title;
+				echo " ";
+				echo $artist;
+				echo " ";
+				echo $genre;
+				echo "<br /br>";
+			}
 			?>
 
 			<!-- PHP End -->

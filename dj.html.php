@@ -111,8 +111,8 @@ list-style:
     			$data = fgets($file);
 				echo $data."<br /br>";
 				echo '<form action="/decision.html.php" method="get">
-  						<input type="checkbox" name="formPerm" value="allow">Allow<br>
-  						<input type="checkbox" name="formPerm" value="deny">Deny<br>
+  						<input type="checkbox" name="allow">Allow<br>
+  						<input type="checkbox" name="deny">Deny<br>
 					</form>';
 			
 				if(isset($_POST['allow']))
@@ -120,7 +120,7 @@ list-style:
 				
 				$count++;
 			}
-				echo '<form action="" method="post">
+				echo '<form action="decision.html.php" method="post">
 						<input type="submit" id="submit" class="submit" value="Submit"/>
 					</form>';
 				fclose($file); 
@@ -146,18 +146,7 @@ list-style:
 
 	    			echo $data."<br /br>";
 				}
-	    		fclose($file);
-
-				$fileName = "newMusicTest.txt";
-				$file = fopen($fileName, "w");
-				echo count($array);
-
-				while($total > 0)
-				{
-	    			echo $array[$x]."<br /br>";
-	    			$count--;
-				}
-				
+								
 	    		fclose($file);
     		?>
 			<!-- Column two end -->

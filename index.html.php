@@ -7,6 +7,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <head>
 	<title>DJ Queue</title>
+</head>
+<style>
+		.p{font-size:xx-large;}
+</style>
 <body>
 	<h2><center>Landing Page</center></h2>
 	<center><p><a href="http://localhost/user.html.php" target="_blank">User Interface</a></p></center>
