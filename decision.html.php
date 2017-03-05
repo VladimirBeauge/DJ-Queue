@@ -2,8 +2,7 @@
 <html>
 <title></title>
 <head>
-		<meta http-equiv="refresh" content=0; url="http://localhost/index.html.php" />
-		<p><a href="http://localhost/index.html.php">Redirect</a></p>
+		<p><a href="http://localhost/index.html.php">Click Me</a></p>
 </head>
 <body>
 	<?php
@@ -21,4 +20,8 @@
     		fclose($file);
     		?>
 </body>
+<footer class="footer">
+  <p>Posted by: <a href="vladimirbeauge.github.io">Vladimir Beauge</a>, <a href="mailto:gibsonp200@potsdam.edu">Steven Gibson</a>, and <a href="mailto:mattheli198@potsdam.edu">Ian Matthews</a>
+  </p>
+</footer>
 </html>

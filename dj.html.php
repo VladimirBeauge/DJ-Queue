@@ -73,11 +73,47 @@ list-style:
 	left:56%;
 	overflow:hidden;
 }
+
+.img{
+		width: 100%;
+		height: auto;
+	}
+	.boxed {
+  border: 1px solid white ;
+  background-color: white;
+}
+ .main
+{
+	background-color:#e9ecf4;
+    font: Monospace;
+    font-size:20px;
+    background-image: url("https://images.pexels.com/photos/25877/pexels-photo-25877.jpg?w=940&h=650&auto=compress&cs=tinysrgb");  }
+}
 /* --> */
     </style>
-<body id="active2">
+<body id="active2" class="main">
+<nav class="navbar navbar-default nav-colo">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://localhost/index.html.php">DJ Queue</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="http://localhost/index.html.php">Home</a></li>
+      <li><a href="http://localhost/user.html.php">User Interface</a></li>
+      <li><a href="http://localhost/dj.html.php">DJ Interface</a></li>
+    </ul>
+  </div>
+</nav>
+	<div>
+	<div class="boxed">
+	<h1><font size="8"><center><bold>DJ-Queue</bold></center></font></h1>
+	<div><font size="6">
+		<p><center><a href="http://localhost/user.html.php" target="_blank">User Interface</a></p></center>
+
+		<p><center><a href="http://localhost/dj.html.php" target="_blank">DJ Interface</a></p></center>
+	</div></p></div>
 <div id="header">
-	<h1><center>Currently Playing: 
+	<h1><center class="boxed">Currently Playing: 
 			<?php
 			$fileName = "musicTest.txt";
 			$file = fopen($fileName, "r");
@@ -95,7 +131,7 @@ list-style:
     	</center></h1>
 <div id="container2">
 	<div id="container1">
-		<div id="col1">
+		<div class="boxed"id="col1">
 			<!-- Column one start -->
 			<h2>Allow or Deny</h2>
 			<h4>Title: &nbsp; Artist: &nbsp; Genre</h4>
@@ -110,25 +146,35 @@ list-style:
 			{
     			$data = fgets($file);
 				echo $data."<br /br>";
-				echo '<form action="/decision.html.php" method="get">
+				echo '<form action="" method="get">
   						<input type="checkbox" name="allow">Allow<br>
   						<input type="checkbox" name="deny">Deny<br>
 					</form>';
 			
 				if(isset($_POST['allow']))
-					$array[$x] = fgets($file);
+				{
+					$array[$count] = explode(" : ",fgets($file));
+					echo $array[$count];
+				}
 				
+				if(isset($_POST['deny']))
+				{
+					if(stristr($data,""))
+						echo '<div class="boxed"> $data." removed"</div>';
+				}
+
 				$count++;
 			}
-				echo '<form action="decision.html.php" method="post">
+				echo '<form action="http://localhost/index.html.php" method="post">
 						<input type="submit" id="submit" class="submit" value="Submit"/>
 					</form>';
+
 				fclose($file); 
 			?>
 
 			<!-- Column one end -->
 		</div>
-		<div id="col2">
+		<div class="boxed"id="col2">
 
 			<!-- Column two start -->
 			<h2>View Queue</h2>
@@ -153,4 +199,7 @@ list-style:
 		</div>
 	</div>
 </div>
+</div>
 </body>
+
+</html>

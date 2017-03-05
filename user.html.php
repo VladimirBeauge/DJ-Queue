@@ -20,9 +20,16 @@ list-style:
 	padding:0;
 }
 
+.back-color
+{
+	background-color: white;
+}
 .main
 {
 	background-color:#e9ecf4;
+    font: Monospace;
+    font-size:20px;
+    background-image: url("https://static.pexels.com/photos/164732/pexels-photo-164732.jpeg");  }
 }
 
 #header h1,
@@ -78,13 +85,39 @@ list-style:
 	left:56%;
 	overflow:hidden;
 }
+.img{
+		width: 100%;
+		height: auto;
+	}
+	.boxed {
+  border: 1px solid white ;
+  background-color: white;
+}
 /* --> */
     </style>
 </head>
-<body id="active2 main">
+<body id="active2" class="main">
+<nav class="navbar navbar-default nav-colo">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://localhost/index.html.php">DJ Queue</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="http://localhost/index.html.php">Home</a></li>
+      <li><a href="http://localhost/user.html.php">User Interface</a></li>
+      <li><a href="http://localhost/dj.html.php">DJ Interface</a></li>
+    </ul>
+  </div>
+</nav>
+	<div class="boxed">
+	<h1><font size="8"><center><bold>DJ-Queue</bold></center></font></h1>
+	<div><font size="6">
+		<p><center><a href="http://localhost/user.html.php" target="_blank">User Interface</a></p></center>
 
+		<p><center><a href="http://localhost/dj.html.php" target="_blank">DJ Interface</a></p></center>
+	</div></p></div>
 <div id="header">
-	<h1><center>Currently Playing: 
+	<h1><center class="back-color">Currently Playing: 
 			<!-- Extract Current Song -->
 			<?php
 			$fileName = "musicTest.txt";
@@ -101,13 +134,13 @@ list-style:
     		fclose($file);
     		?>
 
-		</center></h1>
+		</center></h1></div>
 <div id="container2">
 	<div id="container1">
 		<div id="col1">
 			<!-- Column one start -->
 
-			<h2>Request a Song</h2>
+			<h2 class="back-color">Request a Song</h2>
 			<!-- PHP Start -->
 			<?php
 			$bool = true;
@@ -151,6 +184,7 @@ list-style:
 			}
 			?>
 
+			<div class="boxed">
 			<p><span class="error">* required field.</span></p>
 			<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
 			  Title: <input type="text" name="title" value="<?php echo $title;?>">
@@ -162,13 +196,14 @@ list-style:
 			  <br><br>
 			  <input type="submit" name="submit" value="Submit">  
 			</form>
+			</div>
 
 			<?php
 
-			if($bool)
+			if($bool and $title != ":  :")
 			{
 				$file = fopen("musicTest.txt", "a");
-				echo fwrite($file,"\r\n".$title." : ".$artist." : ".$genre."\r\n");
+				echo fwrite($file,"\r\n".$title." : ".$artist." : ".$genre);
 				fclose($file);
 
 				echo "<h2>Your Input:</h2>";
@@ -184,9 +219,9 @@ list-style:
 			<!-- PHP End -->
 			<!-- Column one end -->
 		</div>
-		<div id="col2">
+		<div id="col2" class="boxed">
 			<!-- Column two start -->
-			<h2>View Queue</h2>
+			<h2 class="back-color">View Queue</h2>
 			<?php
 			$fileName = "musicTest.txt";
 			$file = fopen($fileName, "r");
@@ -200,6 +235,6 @@ list-style:
     		?>
 			<!-- Column two end -->
 		</div>
-	</div>
-</div>
+	</div></div>
 </body>
+</html>
