@@ -13,10 +13,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-	<style media="screen" type="text/css">
-/* <!-- */
-body {
-list-style: 
+<style media="screen" type="text/css">
+.body {
+	list-style: 
 	margin:0;
 	padding:0;
 }
@@ -147,8 +146,7 @@ list-style:
     			$data = fgets($file);
 				echo $data."<br /br>";
 				echo '<form action="" method="get">
-  						<input type="checkbox" name="allow">Allow<br>
-  						<input type="checkbox" name="deny">Deny<br>
+  						<input type="checkbox" name="allow">Allow<input type="checkbox" name="deny">Deny<br>
 					</form>';
 			
 				if(isset($_POST['allow']))
